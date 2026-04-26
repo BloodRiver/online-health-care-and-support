@@ -1,0 +1,197 @@
+{% extends 'bloodconnect/layouts/main_layout.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block main %}
+    <div class="min-h-screen bg-gray-50">
+      <div class="max-w-2xl mx-auto px-4 py-16">
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Create Your Account</h2>
+            <p class="text-gray-600">Join BloodConnect and start saving lives</p>
+          </div>
+
+          <form method="POST" enctype="application/x-www-form-urlencoded" class="space-y-6">
+                {% csrf_token %}
+                <input type="hidden" name="user_type" id="id_user_type">
+                <div class="mb-8">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">I want to register as:</label>
+                    <div class="grid grid-cols-2 gap-4">
+                    <button
+                        type="button"
+                        class="p-4 border-2 rounded-lg transition-all border-red-600 bg-red-50"
+                        id="donorButton"
+                    >
+                        {% include 'bloodconnect/components/droplet.html' with classname='w-8 h-8 mx-auto mb-2 text-red-600' %} {% comment %}: 'text-gray-400'}`} />{% endcomment %}
+                        <p id="donorLabel" class='font-semibold text-red-600'
+                        >
+                        Blood Donor
+                        </p>
+                        <p id="donorText" class="text-sm text-red-700 mt-1">I want to donate blood</p>
+                    </button>
+
+                    <button
+                        type="button"
+                        class='p-4 border-2 rounded-lg transition-all border-gray-300 hover:border-gray-400 bg-gray-50'
+                        id="recipientButton"
+                    >
+                        {% include 'bloodconnect/components/user_icon.html' with classname='w-8 h-8 mx-auto mb-2 text-gray-400' %} {% comment %} : 'text-gray-400'}`} />{% endcomment %}
+                        <p id="recipientLabel" class='font-semibold text-gray-700'>
+                        Blood Recipient
+                        </p>
+                        <p id="recipientText" class="text-sm text-gray-500 mt-1">I need blood</p>
+                    </button>
+                    </div>
+                </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+              <div class="relative">
+                {% include 'bloodconnect/components/user_icon.html' with classname="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" %}
+                <input
+                  type="text"
+                  name="name"
+                  
+                  {% comment %} onChange={handleChange} {% endcomment %}
+                  placeholder="John Doe"
+                  required
+                  class="outline-none w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+              <div class="relative">
+                {% include 'bloodconnect/components/email_icon.html' with classname="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" %}
+                <input
+                  type="email"
+                  name="email"
+                  {% comment %} value={formData.email} {% endcomment %}
+                  {% comment %} onChange={handleChange} {% endcomment %}
+                  placeholder="john.doe@example.com"
+                  required
+                  class="outline-none w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+              <div class="relative">
+                {% include 'bloodconnect/components/phone_icon.html' with classname="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" %}
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+88 01xxx-xxxxxx"
+                  required
+                  class="outline-none w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Blood Group</label>
+              <div class="relative">
+                {% include 'bloodconnect/components/droplet.html' with classname="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" %}
+                <select
+                  name="bloodGroup"
+                  required
+                  class="outline-none w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                >
+                    <option value="" selected>Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+              <div class="relative">
+                {% include 'bloodconnect/components/mappin.html' with classname="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" %}
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Manhattan, NY"
+                  required
+                  class="outline-none w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+              <div class="relative">
+                {% include 'bloodconnect/components/lock_icon.html' with classname="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" %}
+                <input
+                  {% comment %} type={showPassword ? 'text' : 'password'} {% endcomment %}
+                  type='password'
+                  name="password"
+                  placeholder="Create a strong password"
+                  required
+                  class="outline-none w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                />
+                <button
+                  type="button"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                  {% comment %} onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <EyeOff class="w-5 h-5" /> : <Eye class="w-5 h-5" />} {% endcomment %}
+                </button>
+              </div>
+            </div>
+
+            {% comment %} <div class="flex items-start">
+              <input
+                type="checkbox"
+                required
+                class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500 mt-1"
+              />
+              <label class="ml-2 text-sm text-gray-600">
+                I agree to the 
+                <a href="#" class="text-red-600 hover:text-red-700">
+                  Terms of Service
+                </a>
+                and
+                <a href="#" class="text-red-600 hover:text-red-700">
+                  Privacy Policy
+                </a>
+              </label>
+            </div> {% endcomment %}
+
+            <button
+              type="submit"
+              class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+            >
+              Create Account
+            </button>
+          </form>
+
+          <div class="mt-6 text-center">
+            <p class="text-gray-600">
+              Already have an account? 
+              <a
+                href="{% url 'bloodconnect:login' %}"
+                class="text-red-600 font-semibold hover:text-red-700"
+              >
+                Sign in here
+            </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% load static %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'bloodconnect/js/register.js' %}">
+    </script>
+{% endblock %}
