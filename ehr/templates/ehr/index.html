@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHR System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ehr/styles.css' %}">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="profile">
+            <img src="profile-image.jpg" alt="Profile Picture" class="profile-img">
+            <h2>John Anderson</h2>
+            <p>Patient ID: PT-2024-00156</p>
+            <p>March 15, 1978 (48 years)</p>
+            <p>+1 (555) 123-4567</p>
+            <p>john.anderson@email.com</p>
+        </div>
+        <ul>
+            <li><a href="#current-diagnosis">Current Diagnosis</a></li>
+            <li><a href="#past-diagnosis">Past Diagnosis</a></li>
+            <li><a href="#treatments">Treatments</a></li>
+            <li><a href="#surgery">Surgery</a></li>
+            <li><a href="#important-conditions">Important Conditions</a></li>
+            <li><a href="#prescriptions">Prescriptions</a></li>
+            <li><a href="#test-results">Test Results</a></li>
+            <li><a href="#">Return to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section id="current-diagnosis">
+            <h2>Current Diagnosis</h2>
+            <!-- Treatment cards will go here -->
+        </section>
+
+        <section id="past-diagnosis">
+            <h2>Past Diagnosis</h2>
+            <div class="diagnosis-card">
+                <h3>Type 2 Diabetes Mellitus</h3>
+                <p>ICD-10: E11.9</p>
+                <p>Physician: Dr. Sarah Johnson</p>
+                <p>Start Date: 2025-12-15</p>
+            </div>
+            <!-- Additional past diagnoses go here -->
+        </section>
+
+        <section id="treatments">
+            <h2>Treatments</h2>
+            <div class="treatment-card">
+                <h3>Diabetes Management Program</h3>
+                <p>Comprehensive diabetes management...</p>
+                <p>Start Date: 2025-12-20, End Date: Ongoing</p>
+                <p>Status: <span class="status active">Active</span></p>
+            </div>
+            <!-- Additional treatments go here -->
+        </section>
+
+        <section id="important-conditions">
+            <h2>Important Conditions</h2>
+            <div class="condition-card">
+                <h3>Known Allergies</h3>
+                <p>Penicillin: Anaphylaxis (Severe)</p>
+                <p>Peanuts: Hives, difficulty breathing (Moderate)</p>
+            </div>
+            <!-- Additional important conditions go here -->
+        </section>
+    </main>
+
+    <script src="{% static 'ehr/scripts.js' %}"></script>
+</body>
+</html>
