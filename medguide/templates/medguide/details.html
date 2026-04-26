@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'medguide/style.css' %}">
+    <title>MedGuide | Add Details</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Symptom Details: Cough</h2>
+        <div class="card">
+            <div class="input-group">
+                <label>How long have you had this symptom?</label>
+                <select>
+                    <option>1-3 Days</option>
+                    <option>1 Week</option>
+                    <option>More than a month</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Intensity (1 = Mild, 10 = Severe)</label>
+                <input type="range" min="1" max="10" value="5" style="width:100%">
+            </div>
+            <div class="input-group">
+                <label>Additional Notes (Triggers/Patterns)</label>
+                <textarea rows="3" placeholder="Example: Worse at night..."></textarea>
+            </div>
+        </div>
+        <a href="{% url 'medguide:recommendation' %}" class="btn btn-primary">Analyze Symptoms</a>
+    </div>
+</body>
+</html>

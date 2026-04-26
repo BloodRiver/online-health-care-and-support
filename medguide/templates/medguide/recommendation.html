@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'medguide/style.css' %}">
+    <title>MedGuide | Recommendation</title>
+</head>
+<body>
+    <div class="container text-center">
+        <h2>Specialist Recommendation</h2>
+        <div class="card" style="border: 2px solid var(--primary-blue);">
+            <h1 style="font-size: 2.5em;">Pulmonologist</h1>
+            <p><strong>Specialty Description:</strong> A doctor who specializes in the respiratory system, including lungs and airways.</p>
+        </div>
+        <div class="disclaimer" style="background: #e6fffa; border-color: var(--success-green); color: #234e52;">
+            <strong>Standard Advice:</strong> If you experience difficulty breathing, please visit a <strong>General Practitioner</strong> or Emergency Room immediately.
+        </div>
+        <a href="{% url 'medguide:preview' %}" class="btn btn-primary">View Final Report</a>
+    </div>
+</body>
+</html>

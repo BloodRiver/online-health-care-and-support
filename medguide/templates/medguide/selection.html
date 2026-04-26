@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'medguide/style.css' %}">
+    <title>MedGuide | Select Symptoms</title>
+</head>
+<body>
+    <div class="container">
+        <div class="flex-split">
+            <div class="main-content">
+                <h2>Select Symptoms</h2>
+                <input type="text" placeholder="Search symptoms (e.g., Cough, Fever)...">
+                
+                <h3>Respiratory System</h3>
+                <div class="card">
+                    <button class="badge">Cough</button>
+                    <button class="badge">Shortness of Breath</button>
+                    <button class="badge">Sore Throat</button>
+                </div>
+                
+                <h3>Digestive System</h3>
+                <div class="card">
+                    <button class="badge">Stomach Ache</button>
+                    <button class="badge">Nausea</button>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <h3>Selection Summary</h3>
+                <ul id="selected-list">
+                    <li>Cough <small>(Remove)</small></li>
+                </ul>
+                <a href="{% url 'medguide:details' %}" class="btn btn-success">Next: Add Details</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
