@@ -1,0 +1,884 @@
+{% extends 'bloodconnect/layouts/main_layout.html' %}
+
+{% block title %}Find Donor{% endblock %}
+
+{% block main %}
+    <div class="min-h-[calc(100vh-64px)] bg-gradient-to-br from-red-50 to-white"
+    data-fg-b9eq0="1.43:1.12195:/src/app/pages/FindDonor.tsx:99:5:2728:9459:e:div:xtetxte:1" data-fgid-b9eq0=":r6c:"
+    data-fg-callsite-ccit0="">
+    <div class="bg-white border-b border-gray-200 shadow-sm"
+        data-fg-b9eq2="1.43:1.12195:/src/app/pages/FindDonor.tsx:101:7:2845:1048:e:div:e" data-fgid-b9eq2=":r6d:">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6"
+            data-fg-b9eq3="1.43:1.12195:/src/app/pages/FindDonor.tsx:102:9:2915:965:e:div:ete" data-fgid-b9eq3=":r6e:">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6"
+                data-fg-b9eq4="1.43:1.12195:/src/app/pages/FindDonor.tsx:103:11:2987:75:e:h1:t" data-fgid-b9eq4=":r6f:">
+                Find Blood Donor</h1>
+            <div class="grid md:grid-cols-4 gap-4"
+                data-fg-b9eq6="1.43:1.12195:/src/app/pages/FindDonor.tsx:104:11:3073:792:e:div:etetete"
+                data-fgid-b9eq6=":r6g:">
+                <div class="flex flex-col gap-2"
+                    data-fg-wqt0="1.39:1.1057:/src/app/components/Select.tsx:12:5:333:716:e:div:xte:1"
+                    data-fgid-wqt0=":r6i:" data-fg-callsite-b9eq7=""><label class="text-gray-700 font-medium"
+                        data-fg-wqt2="1.39:1.1057:/src/app/components/Select.tsx:14:9:397:149:e:label:xtx"
+                        data-fgid-wqt2=":r6j:">Blood Group</label><select
+                        class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white"
+                        data-fg-wqt7="1.39:1.1057:/src/app/components/Select.tsx:19:7:562:476:e:select:xtx"
+                        data-fgid-wqt7=":r6k:">
+                        <option value=""
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6l:">All Blood Groups</option>
+                        <option value="A+"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6m:">A+</option>
+                        <option value="A-"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6n:">A-</option>
+                        <option value="B+"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6o:">B+</option>
+                        <option value="B-"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6p:">B-</option>
+                        <option value="AB+"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6q:">AB+</option>
+                        <option value="AB-"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6r:">AB-</option>
+                        <option value="O+"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6s:">O+</option>
+                        <option value="O-"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r6t:">O-</option>
+                    </select></div>
+                <div class="flex flex-col gap-2"
+                    data-fg-wqt0="1.39:1.1057:/src/app/components/Select.tsx:12:5:333:716:e:div:xte:1"
+                    data-fgid-wqt0=":r6v:" data-fg-callsite-b9eq8=""><label class="text-gray-700 font-medium"
+                        data-fg-wqt2="1.39:1.1057:/src/app/components/Select.tsx:14:9:397:149:e:label:xtx"
+                        data-fgid-wqt2=":r70:">Distance</label><select
+                        class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white"
+                        data-fg-wqt7="1.39:1.1057:/src/app/components/Select.tsx:19:7:562:476:e:select:xtx"
+                        data-fgid-wqt7=":r71:">
+                        <option value="5"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r72:">Within 5 km</option>
+                        <option value="10"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r73:">Within 10 km</option>
+                        <option value="20"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r74:">Within 20 km</option>
+                        <option value="50"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r75:">Within 50 km</option>
+                    </select></div>
+                <div class="flex flex-col gap-2"
+                    data-fg-wqt0="1.39:1.1057:/src/app/components/Select.tsx:12:5:333:716:e:div:xte:1"
+                    data-fgid-wqt0=":r77:" data-fg-callsite-b9eq9=""><label class="text-gray-700 font-medium"
+                        data-fg-wqt2="1.39:1.1057:/src/app/components/Select.tsx:14:9:397:149:e:label:xtx"
+                        data-fgid-wqt2=":r78:">Availability</label><select
+                        class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white"
+                        data-fg-wqt7="1.39:1.1057:/src/app/components/Select.tsx:19:7:562:476:e:select:xtx"
+                        data-fgid-wqt7=":r79:">
+                        <option value="all"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r7a:">All</option>
+                        <option value="available"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r7b:">Available Only</option>
+                        <option value="unavailable"
+                            data-fg-wqt12="1.39:1.1057:/src/app/components/Select.tsx:27:11:915:95:e:option:x"
+                            data-fgid-wqt12=":r7c:">Unavailable</option>
+                    </select></div>
+                <div class="flex items-end"
+                    data-fg-b9eq10="1.43:1.12195:/src/app/pages/FindDonor.tsx:123:13:3733:115:e:div:e"
+                    data-fgid-b9eq10=":r7d:"><button type="button"
+                        class="px-6 py-3 rounded-lg transition font-medium bg-red-600 text-white hover:bg-red-700 w-full"
+                        data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                        data-fgid-clh10=":r7f:" data-fg-callsite-b9eq11="">Apply Filters</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+        data-fg-b9eq14="1.43:1.12195:/src/app/pages/FindDonor.tsx:131:7:3946:8230:e:div:e" data-fgid-b9eq14=":r7g:">
+        <div class="grid lg:grid-cols-2 gap-8"
+            data-fg-b9eq15="1.43:1.12195:/src/app/pages/FindDonor.tsx:132:9:4016:8147:e:div:xtetxte"
+            data-fgid-b9eq15=":r7h:">
+            <div class="lg:sticky lg:top-8 h-fit"
+                data-fg-b9eq17="1.43:1.12195:/src/app/pages/FindDonor.tsx:134:11:4110:4496:e:div:e"
+                data-fgid-b9eq17=":r7i:">
+                <div class="bg-white rounded-xl shadow-md p-6 p-0 overflow-hidden"
+                    data-fg-delx0="1.35:1.287:/src/app/components/Card.tsx:10:5:185:94:e:div:c:1"
+                    data-fgid-delx0=":r7k:" data-fg-callsite-b9eq18="">
+                    <div class="bg-gradient-to-br from-red-600 to-red-700 text-white p-4"
+                        data-fg-b9eq19="1.43:1.12195:/src/app/pages/FindDonor.tsx:136:15:4218:380:e:div:ete"
+                        data-fgid-b9eq19=":r7l:">
+                        <h2 class="text-xl font-bold flex items-center gap-2"
+                            data-fg-b9eq20="1.43:1.12195:/src/app/pages/FindDonor.tsx:137:17:4309:165:e:h2:et"
+                            data-fgid-b9eq20=":r7m:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-5 h-5"
+                                data-fg-b9eq21="1.43:1.12195:/src/app/pages/FindDonor.tsx:138:19:4386:30:e:MapPin::::::BveZ"
+                                data-fgid-b9eq21=":r7n:">
+                                <path
+                                    d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                </path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>Nearby Donors Map</h2>
+                        <p class="text-red-100 text-sm mt-1"
+                            data-fg-b9eq23="1.43:1.12195:/src/app/pages/FindDonor.tsx:141:17:4491:86:e:p:xt"
+                            data-fgid-b9eq23=":r7o:">5 donors found in your area</p>
+                    </div>
+                    <div class="relative bg-gradient-to-br from-gray-100 to-gray-200 h-[500px] overflow-hidden"
+                        data-fg-b9eq27="1.43:1.12195:/src/app/pages/FindDonor.tsx:145:15:4659:3024:e:div:xtetxtetxtx"
+                        data-fgid-b9eq27=":r7p:">
+                        <div class="absolute inset-0 opacity-20"
+                            data-fg-b9eq29="1.43:1.12195:/src/app/pages/FindDonor.tsx:147:17:4816:545:e:div:xtx"
+                            data-fgid-b9eq29=":r7q:">
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r7r:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r7s:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r7t:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r7u:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r7v:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r80:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r81:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r82:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r83:" style="height: 10%;"></div>
+                            <div class="border-b border-gray-400"
+                                data-fg-b9eq31="1.43:1.12195:/src/app/pages/FindDonor.tsx:149:21:4932:85:e:div"
+                                data-fgid-b9eq31=":r84:" style="height: 10%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r85:" style="width: 10%; left: 0%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r86:" style="width: 10%; left: 10%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r87:" style="width: 10%; left: 20%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r88:" style="width: 10%; left: 30%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r89:" style="width: 10%; left: 40%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r8a:" style="width: 10%; left: 50%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r8b:" style="width: 10%; left: 60%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r8c:" style="width: 10%; left: 70%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r8d:" style="width: 10%; left: 80%;"></div>
+                            <div class="absolute border-r border-gray-400 h-full"
+                                data-fg-b9eq33="1.43:1.12195:/src/app/pages/FindDonor.tsx:152:21:5110:206:e:div"
+                                data-fgid-b9eq33=":r8e:" style="width: 10%; left: 90%;"></div>
+                        </div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                            data-fg-b9eq35="1.43:1.12195:/src/app/pages/FindDonor.tsx:161:17:5417:854:e:div:e"
+                            data-fgid-b9eq35=":r8f:">
+                            <div class="relative"
+                                data-fg-b9eq36="1.43:1.12195:/src/app/pages/FindDonor.tsx:162:19:5518:730:e:div:etetxte"
+                                data-fgid-b9eq36=":r8g:">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white"
+                                    data-fg-b9eq37="1.43:1.12195:/src/app/pages/FindDonor.tsx:163:21:5565:219:e:div:e"
+                                    data-fgid-b9eq37=":r8h:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-map-pin w-8 h-8 text-white fill-white"
+                                        data-fg-b9eq38="1.43:1.12195:/src/app/pages/FindDonor.tsx:164:23:5705:52:e:MapPin::::::BveZ"
+                                        data-fgid-b9eq38=":r8i:">
+                                        <path
+                                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                        </path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg></div>
+                                <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold"
+                                    data-fg-b9eq39="1.43:1.12195:/src/app/pages/FindDonor.tsx:166:21:5805:197:e:div:t"
+                                    data-fgid-b9eq39=":r8j:">You</div>
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border-2 border-blue-400 rounded-full opacity-30 pointer-events-none"
+                                    data-fg-b9eq42="1.43:1.12195:/src/app/pages/FindDonor.tsx:170:21:6065:158:e:div"
+                                    data-fgid-b9eq42=":r8k:"></div>
+                            </div>
+                        </div><button
+                            class="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all hover:scale-110"
+                            data-fg-b9eq45="1.43:1.12195:/src/app/pages/FindDonor.tsx:176:19:6370:1272:e:button:e"
+                            data-fgid-b9eq45=":r8l:" style="top: 30%; left: 40%;">
+                            <div class="relative  transition-transform"
+                                data-fg-b9eq46="1.43:1.12195:/src/app/pages/FindDonor.tsx:182:21:6715:899:e:div:etete"
+                                data-fgid-b9eq46=":r8m:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-10 h-10 text-red-600 fill-red-600 drop-shadow-lg"
+                                    data-fg-b9eq47="1.43:1.12195:/src/app/pages/FindDonor.tsx:187:23:6927:228:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq47=":r8n:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2"
+                                    data-fg-b9eq48="1.43:1.12195:/src/app/pages/FindDonor.tsx:192:23:7178:165:e:div:e"
+                                    data-fgid-b9eq48=":r8o:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-droplet w-4 h-4 text-white fill-white"
+                                        data-fg-b9eq49="1.43:1.12195:/src/app/pages/FindDonor.tsx:193:25:7261:53:e:Droplet::::::BBBa"
+                                        data-fgid-b9eq49=":r8p:">
+                                        <path
+                                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                        </path>
+                                    </svg></div>
+                                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-2 py-1 rounded shadow-md text-xs font-bold text-gray-900"
+                                    data-fg-b9eq50="1.43:1.12195:/src/app/pages/FindDonor.tsx:195:23:7366:221:e:div:x"
+                                    data-fgid-b9eq50=":r8q:">O+</div>
+                            </div>
+                        </button><button
+                            class="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all hover:scale-110"
+                            data-fg-b9eq45="1.43:1.12195:/src/app/pages/FindDonor.tsx:176:19:6370:1272:e:button:e"
+                            data-fgid-b9eq45=":r8r:" style="top: 45%; left: 60%;">
+                            <div class="relative  transition-transform"
+                                data-fg-b9eq46="1.43:1.12195:/src/app/pages/FindDonor.tsx:182:21:6715:899:e:div:etete"
+                                data-fgid-b9eq46=":r8s:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-10 h-10 text-red-600 fill-red-600 drop-shadow-lg"
+                                    data-fg-b9eq47="1.43:1.12195:/src/app/pages/FindDonor.tsx:187:23:6927:228:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq47=":r8t:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2"
+                                    data-fg-b9eq48="1.43:1.12195:/src/app/pages/FindDonor.tsx:192:23:7178:165:e:div:e"
+                                    data-fgid-b9eq48=":r8u:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-droplet w-4 h-4 text-white fill-white"
+                                        data-fg-b9eq49="1.43:1.12195:/src/app/pages/FindDonor.tsx:193:25:7261:53:e:Droplet::::::BBBa"
+                                        data-fgid-b9eq49=":r8v:">
+                                        <path
+                                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                        </path>
+                                    </svg></div>
+                                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-2 py-1 rounded shadow-md text-xs font-bold text-gray-900"
+                                    data-fg-b9eq50="1.43:1.12195:/src/app/pages/FindDonor.tsx:195:23:7366:221:e:div:x"
+                                    data-fgid-b9eq50=":r90:">A+</div>
+                            </div>
+                        </button><button
+                            class="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all hover:scale-110"
+                            data-fg-b9eq45="1.43:1.12195:/src/app/pages/FindDonor.tsx:176:19:6370:1272:e:button:e"
+                            data-fgid-b9eq45=":r91:" style="top: 60%; left: 50%;">
+                            <div class="relative  transition-transform"
+                                data-fg-b9eq46="1.43:1.12195:/src/app/pages/FindDonor.tsx:182:21:6715:899:e:div:etete"
+                                data-fgid-b9eq46=":r92:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-10 h-10 text-gray-400 fill-gray-400 drop-shadow-lg"
+                                    data-fg-b9eq47="1.43:1.12195:/src/app/pages/FindDonor.tsx:187:23:6927:228:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq47=":r93:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2"
+                                    data-fg-b9eq48="1.43:1.12195:/src/app/pages/FindDonor.tsx:192:23:7178:165:e:div:e"
+                                    data-fgid-b9eq48=":r94:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-droplet w-4 h-4 text-white fill-white"
+                                        data-fg-b9eq49="1.43:1.12195:/src/app/pages/FindDonor.tsx:193:25:7261:53:e:Droplet::::::BBBa"
+                                        data-fgid-b9eq49=":r95:">
+                                        <path
+                                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                        </path>
+                                    </svg></div>
+                                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-2 py-1 rounded shadow-md text-xs font-bold text-gray-900"
+                                    data-fg-b9eq50="1.43:1.12195:/src/app/pages/FindDonor.tsx:195:23:7366:221:e:div:x"
+                                    data-fgid-b9eq50=":r96:">B+</div>
+                            </div>
+                        </button><button
+                            class="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all hover:scale-110"
+                            data-fg-b9eq45="1.43:1.12195:/src/app/pages/FindDonor.tsx:176:19:6370:1272:e:button:e"
+                            data-fgid-b9eq45=":r97:" style="top: 25%; left: 70%;">
+                            <div class="relative  transition-transform"
+                                data-fg-b9eq46="1.43:1.12195:/src/app/pages/FindDonor.tsx:182:21:6715:899:e:div:etete"
+                                data-fgid-b9eq46=":r98:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-10 h-10 text-red-600 fill-red-600 drop-shadow-lg"
+                                    data-fg-b9eq47="1.43:1.12195:/src/app/pages/FindDonor.tsx:187:23:6927:228:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq47=":r99:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2"
+                                    data-fg-b9eq48="1.43:1.12195:/src/app/pages/FindDonor.tsx:192:23:7178:165:e:div:e"
+                                    data-fgid-b9eq48=":r9a:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-droplet w-4 h-4 text-white fill-white"
+                                        data-fg-b9eq49="1.43:1.12195:/src/app/pages/FindDonor.tsx:193:25:7261:53:e:Droplet::::::BBBa"
+                                        data-fgid-b9eq49=":r9b:">
+                                        <path
+                                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                        </path>
+                                    </svg></div>
+                                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-2 py-1 rounded shadow-md text-xs font-bold text-gray-900"
+                                    data-fg-b9eq50="1.43:1.12195:/src/app/pages/FindDonor.tsx:195:23:7366:221:e:div:x"
+                                    data-fgid-b9eq50=":r9c:">AB+</div>
+                            </div>
+                        </button><button
+                            class="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all hover:scale-110"
+                            data-fg-b9eq45="1.43:1.12195:/src/app/pages/FindDonor.tsx:176:19:6370:1272:e:button:e"
+                            data-fgid-b9eq45=":r9d:" style="top: 70%; left: 35%;">
+                            <div class="relative  transition-transform"
+                                data-fg-b9eq46="1.43:1.12195:/src/app/pages/FindDonor.tsx:182:21:6715:899:e:div:etete"
+                                data-fgid-b9eq46=":r9e:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-10 h-10 text-red-600 fill-red-600 drop-shadow-lg"
+                                    data-fg-b9eq47="1.43:1.12195:/src/app/pages/FindDonor.tsx:187:23:6927:228:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq47=":r9f:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2"
+                                    data-fg-b9eq48="1.43:1.12195:/src/app/pages/FindDonor.tsx:192:23:7178:165:e:div:e"
+                                    data-fgid-b9eq48=":r9g:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-droplet w-4 h-4 text-white fill-white"
+                                        data-fg-b9eq49="1.43:1.12195:/src/app/pages/FindDonor.tsx:193:25:7261:53:e:Droplet::::::BBBa"
+                                        data-fgid-b9eq49=":r9h:">
+                                        <path
+                                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                        </path>
+                                    </svg></div>
+                                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-2 py-1 rounded shadow-md text-xs font-bold text-gray-900"
+                                    data-fg-b9eq50="1.43:1.12195:/src/app/pages/FindDonor.tsx:195:23:7366:221:e:div:x"
+                                    data-fgid-b9eq50=":r9i:">O-</div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="p-4 bg-gray-50 border-t border-gray-200"
+                        data-fg-b9eq52="1.43:1.12195:/src/app/pages/FindDonor.tsx:203:15:7699:870:e:div:e"
+                        data-fgid-b9eq52=":r9j:">
+                        <div class="flex items-center gap-4 text-sm"
+                            data-fg-b9eq53="1.43:1.12195:/src/app/pages/FindDonor.tsx:204:17:7773:775:e:div:etete"
+                            data-fgid-b9eq53=":r9k:">
+                            <div class="flex items-center gap-2"
+                                data-fg-b9eq54="1.43:1.12195:/src/app/pages/FindDonor.tsx:205:19:7841:212:e:div:ete"
+                                data-fgid-b9eq54=":r9l:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-4 h-4 text-red-600 fill-red-600"
+                                    data-fg-b9eq55="1.43:1.12195:/src/app/pages/FindDonor.tsx:206:21:7903:56:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq55=":r9m:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg><span class="text-gray-700"
+                                    data-fg-b9eq56="1.43:1.12195:/src/app/pages/FindDonor.tsx:207:21:7980:48:e:span:t"
+                                    data-fgid-b9eq56=":r9n:">Available</span></div>
+                            <div class="flex items-center gap-2"
+                                data-fg-b9eq58="1.43:1.12195:/src/app/pages/FindDonor.tsx:209:19:8072:216:e:div:ete"
+                                data-fgid-b9eq58=":r9o:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-4 h-4 text-gray-400 fill-gray-400"
+                                    data-fg-b9eq59="1.43:1.12195:/src/app/pages/FindDonor.tsx:210:21:8134:58:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq59=":r9p:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg><span class="text-gray-700"
+                                    data-fg-b9eq60="1.43:1.12195:/src/app/pages/FindDonor.tsx:211:21:8213:50:e:span:t"
+                                    data-fgid-b9eq60=":r9q:">Unavailable</span></div>
+                            <div class="flex items-center gap-2"
+                                data-fg-b9eq62="1.43:1.12195:/src/app/pages/FindDonor.tsx:213:19:8307:218:e:div:ete"
+                                data-fgid-b9eq62=":r9r:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-map-pin w-4 h-4 text-blue-600 fill-blue-600"
+                                    data-fg-b9eq63="1.43:1.12195:/src/app/pages/FindDonor.tsx:214:21:8369:58:e:MapPin::::::BveZ"
+                                    data-fgid-b9eq63=":r9s:">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                    </path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg><span class="text-gray-700"
+                                    data-fg-b9eq64="1.43:1.12195:/src/app/pages/FindDonor.tsx:215:21:8448:52:e:span:t"
+                                    data-fgid-b9eq64=":r9t:">Your Location</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4" data-fg-b9eq67="1.43:1.12195:/src/app/pages/FindDonor.tsx:223:11:8654:3494:e:div:etx"
+                data-fgid-b9eq67=":r9u:">
+                <div class="flex items-center justify-between mb-4"
+                    data-fg-b9eq68="1.43:1.12195:/src/app/pages/FindDonor.tsx:224:13:8694:245:e:div:ete"
+                    data-fgid-b9eq68=":r9v:">
+                    <h2 class="text-2xl font-bold text-gray-900"
+                        data-fg-b9eq69="1.43:1.12195:/src/app/pages/FindDonor.tsx:225:15:8765:70:e:h2:t"
+                        data-fgid-b9eq69=":ra0:">Available Donors</h2><span class="text-sm text-gray-600"
+                        data-fg-b9eq71="1.43:1.12195:/src/app/pages/FindDonor.tsx:226:15:8850:70:e:span:xt"
+                        data-fgid-b9eq71=":ra1:">5 results</span>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all hover:shadow-xl "
+                    data-fg-delx0="1.35:1.287:/src/app/components/Card.tsx:10:5:185:94:e:div:c:1"
+                    data-fgid-delx0=":ra3:" data-fg-callsite-b9eq75="">
+                    <div class="flex items-start justify-between"
+                        data-fg-b9eq76="1.43:1.12195:/src/app/pages/FindDonor.tsx:237:17:9291:1736:e:div:ete"
+                        data-fgid-b9eq76=":ra4:">
+                        <div class="flex items-start gap-4"
+                            data-fg-b9eq77="1.43:1.12195:/src/app/pages/FindDonor.tsx:238:19:9360:867:e:div:ete"
+                            data-fgid-b9eq77=":ra5:">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"
+                                data-fg-b9eq78="1.43:1.12195:/src/app/pages/FindDonor.tsx:239:21:9421:205:e:div:e"
+                                data-fgid-b9eq78=":ra6:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-droplet w-8 h-8 text-red-600 fill-red-600"
+                                    data-fg-b9eq79="1.43:1.12195:/src/app/pages/FindDonor.tsx:240:23:9542:57:e:Droplet::::::BBBa"
+                                    data-fgid-b9eq79=":ra7:">
+                                    <path
+                                        d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                    </path>
+                                </svg></div>
+                            <div data-fg-b9eq80="1.43:1.12195:/src/app/pages/FindDonor.tsx:242:21:9647:555:e:div:etete"
+                                data-fgid-b9eq80=":ra8:">
+                                <h3 class="text-xl font-bold text-gray-900"
+                                    data-fg-b9eq81="1.43:1.12195:/src/app/pages/FindDonor.tsx:243:23:9675:65:e:h3:x"
+                                    data-fgid-b9eq81=":ra9:">Sarah Johnson</h3>
+                                <div class="flex items-center gap-2 mt-1 text-gray-600"
+                                    data-fg-b9eq83="1.43:1.12195:/src/app/pages/FindDonor.tsx:244:23:9763:308:e:div:etete"
+                                    data-fgid-b9eq83=":raa:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-map-pin w-4 h-4"
+                                        data-fg-b9eq84="1.43:1.12195:/src/app/pages/FindDonor.tsx:245:25:9848:30:e:MapPin::::::BveZ"
+                                        data-fgid-b9eq84=":rab:">
+                                        <path
+                                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                        </path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg><span class="text-sm"
+                                        data-fg-b9eq85="1.43:1.12195:/src/app/pages/FindDonor.tsx:246:25:9903:49:e:span:x"
+                                        data-fgid-b9eq85=":rac:">Brooklyn, NY</span><span class="text-sm text-gray-400"
+                                        data-fg-b9eq87="1.43:1.12195:/src/app/pages/FindDonor.tsx:247:25:9977:65:e:span:tx"
+                                        data-fgid-b9eq87=":rad:">• 2.3 km</span></div>
+                                <p class="text-sm text-gray-500 mt-1"
+                                    data-fg-b9eq90="1.43:1.12195:/src/app/pages/FindDonor.tsx:249:23:10094:81:e:p:tx"
+                                    data-fgid-b9eq90=":rae:">Last donation: 3 months ago</p>
+                            </div>
+                        </div>
+                        <div class="text-right"
+                            data-fg-b9eq93="1.43:1.12195:/src/app/pages/FindDonor.tsx:253:19:10247:757:e:div:ete"
+                            data-fgid-b9eq93=":raf:">
+                            <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full mb-2"
+                                data-fg-b9eq94="1.43:1.12195:/src/app/pages/FindDonor.tsx:254:21:10296:191:e:div:e"
+                                data-fgid-b9eq94=":rag:"><span class="text-xl font-bold"
+                                    data-fg-b9eq95="1.43:1.12195:/src/app/pages/FindDonor.tsx:255:23:10399:61:e:span:x"
+                                    data-fgid-b9eq95=":rah:">O+</span></div>
+                            <div data-fg-b9eq97="1.43:1.12195:/src/app/pages/FindDonor.tsx:257:21:10508:471:e:div:e"
+                                data-fgid-b9eq97=":rai:"><span
+                                    class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700"
+                                    data-fg-b9eq98="1.43:1.12195:/src/app/pages/FindDonor.tsx:258:23:10536:416:e:span:x"
+                                    data-fgid-b9eq98=":raj:">Available</span></div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 mt-4 pt-4 border-t border-gray-200"
+                        data-fg-b9eq101="1.43:1.12195:/src/app/pages/FindDonor.tsx:272:19:11085:989:e:div:ete"
+                        data-fgid-b9eq101=":rak:"><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium bg-red-600 text-white hover:bg-red-700 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":ram:" data-fg-callsite-b9eq102=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-phone w-4 h-4"
+                                data-fg-b9eq103="1.43:1.12195:/src/app/pages/FindDonor.tsx:281:23:11507:29:e:Phone::::::DmpI"
+                                data-fgid-b9eq103=":ran:">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>Call</button><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium border-2 border-red-600 text-red-600 hover:bg-red-50 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":rap:" data-fg-callsite-b9eq105=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-message-circle w-4 h-4"
+                                data-fg-b9eq106="1.43:1.12195:/src/app/pages/FindDonor.tsx:292:23:11952:37:e:MessageCircle::::::DDY7"
+                                data-fgid-b9eq106=":raq:">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                            </svg>Message</button></div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all hover:shadow-xl "
+                    data-fg-delx0="1.35:1.287:/src/app/components/Card.tsx:10:5:185:94:e:div:c:1"
+                    data-fgid-delx0=":ras:" data-fg-callsite-b9eq75="">
+                    <div class="flex items-start justify-between"
+                        data-fg-b9eq76="1.43:1.12195:/src/app/pages/FindDonor.tsx:237:17:9291:1736:e:div:ete"
+                        data-fgid-b9eq76=":rat:">
+                        <div class="flex items-start gap-4"
+                            data-fg-b9eq77="1.43:1.12195:/src/app/pages/FindDonor.tsx:238:19:9360:867:e:div:ete"
+                            data-fgid-b9eq77=":rau:">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"
+                                data-fg-b9eq78="1.43:1.12195:/src/app/pages/FindDonor.tsx:239:21:9421:205:e:div:e"
+                                data-fgid-b9eq78=":rav:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-droplet w-8 h-8 text-red-600 fill-red-600"
+                                    data-fg-b9eq79="1.43:1.12195:/src/app/pages/FindDonor.tsx:240:23:9542:57:e:Droplet::::::BBBa"
+                                    data-fgid-b9eq79=":rb0:">
+                                    <path
+                                        d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                    </path>
+                                </svg></div>
+                            <div data-fg-b9eq80="1.43:1.12195:/src/app/pages/FindDonor.tsx:242:21:9647:555:e:div:etete"
+                                data-fgid-b9eq80=":rb1:">
+                                <h3 class="text-xl font-bold text-gray-900"
+                                    data-fg-b9eq81="1.43:1.12195:/src/app/pages/FindDonor.tsx:243:23:9675:65:e:h3:x"
+                                    data-fgid-b9eq81=":rb2:">Michael Chen</h3>
+                                <div class="flex items-center gap-2 mt-1 text-gray-600"
+                                    data-fg-b9eq83="1.43:1.12195:/src/app/pages/FindDonor.tsx:244:23:9763:308:e:div:etete"
+                                    data-fgid-b9eq83=":rb3:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-map-pin w-4 h-4"
+                                        data-fg-b9eq84="1.43:1.12195:/src/app/pages/FindDonor.tsx:245:25:9848:30:e:MapPin::::::BveZ"
+                                        data-fgid-b9eq84=":rb4:">
+                                        <path
+                                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                        </path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg><span class="text-sm"
+                                        data-fg-b9eq85="1.43:1.12195:/src/app/pages/FindDonor.tsx:246:25:9903:49:e:span:x"
+                                        data-fgid-b9eq85=":rb5:">Manhattan, NY</span><span class="text-sm text-gray-400"
+                                        data-fg-b9eq87="1.43:1.12195:/src/app/pages/FindDonor.tsx:247:25:9977:65:e:span:tx"
+                                        data-fgid-b9eq87=":rb6:">• 4.5 km</span></div>
+                                <p class="text-sm text-gray-500 mt-1"
+                                    data-fg-b9eq90="1.43:1.12195:/src/app/pages/FindDonor.tsx:249:23:10094:81:e:p:tx"
+                                    data-fgid-b9eq90=":rb7:">Last donation: 2 months ago</p>
+                            </div>
+                        </div>
+                        <div class="text-right"
+                            data-fg-b9eq93="1.43:1.12195:/src/app/pages/FindDonor.tsx:253:19:10247:757:e:div:ete"
+                            data-fgid-b9eq93=":rb8:">
+                            <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full mb-2"
+                                data-fg-b9eq94="1.43:1.12195:/src/app/pages/FindDonor.tsx:254:21:10296:191:e:div:e"
+                                data-fgid-b9eq94=":rb9:"><span class="text-xl font-bold"
+                                    data-fg-b9eq95="1.43:1.12195:/src/app/pages/FindDonor.tsx:255:23:10399:61:e:span:x"
+                                    data-fgid-b9eq95=":rba:">A+</span></div>
+                            <div data-fg-b9eq97="1.43:1.12195:/src/app/pages/FindDonor.tsx:257:21:10508:471:e:div:e"
+                                data-fgid-b9eq97=":rbb:"><span
+                                    class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700"
+                                    data-fg-b9eq98="1.43:1.12195:/src/app/pages/FindDonor.tsx:258:23:10536:416:e:span:x"
+                                    data-fgid-b9eq98=":rbc:">Available</span></div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 mt-4 pt-4 border-t border-gray-200"
+                        data-fg-b9eq101="1.43:1.12195:/src/app/pages/FindDonor.tsx:272:19:11085:989:e:div:ete"
+                        data-fgid-b9eq101=":rbd:"><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium bg-red-600 text-white hover:bg-red-700 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":rbf:" data-fg-callsite-b9eq102=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-phone w-4 h-4"
+                                data-fg-b9eq103="1.43:1.12195:/src/app/pages/FindDonor.tsx:281:23:11507:29:e:Phone::::::DmpI"
+                                data-fgid-b9eq103=":rbg:">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>Call</button><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium border-2 border-red-600 text-red-600 hover:bg-red-50 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":rbi:" data-fg-callsite-b9eq105=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-message-circle w-4 h-4"
+                                data-fg-b9eq106="1.43:1.12195:/src/app/pages/FindDonor.tsx:292:23:11952:37:e:MessageCircle::::::DDY7"
+                                data-fgid-b9eq106=":rbj:">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                            </svg>Message</button></div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all hover:shadow-xl "
+                    data-fg-delx0="1.35:1.287:/src/app/components/Card.tsx:10:5:185:94:e:div:c:1"
+                    data-fgid-delx0=":rbl:" data-fg-callsite-b9eq75="">
+                    <div class="flex items-start justify-between"
+                        data-fg-b9eq76="1.43:1.12195:/src/app/pages/FindDonor.tsx:237:17:9291:1736:e:div:ete"
+                        data-fgid-b9eq76=":rbm:">
+                        <div class="flex items-start gap-4"
+                            data-fg-b9eq77="1.43:1.12195:/src/app/pages/FindDonor.tsx:238:19:9360:867:e:div:ete"
+                            data-fgid-b9eq77=":rbn:">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"
+                                data-fg-b9eq78="1.43:1.12195:/src/app/pages/FindDonor.tsx:239:21:9421:205:e:div:e"
+                                data-fgid-b9eq78=":rbo:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-droplet w-8 h-8 text-red-600 fill-red-600"
+                                    data-fg-b9eq79="1.43:1.12195:/src/app/pages/FindDonor.tsx:240:23:9542:57:e:Droplet::::::BBBa"
+                                    data-fgid-b9eq79=":rbp:">
+                                    <path
+                                        d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                    </path>
+                                </svg></div>
+                            <div data-fg-b9eq80="1.43:1.12195:/src/app/pages/FindDonor.tsx:242:21:9647:555:e:div:etete"
+                                data-fgid-b9eq80=":rbq:">
+                                <h3 class="text-xl font-bold text-gray-900"
+                                    data-fg-b9eq81="1.43:1.12195:/src/app/pages/FindDonor.tsx:243:23:9675:65:e:h3:x"
+                                    data-fgid-b9eq81=":rbr:">Emily Davis</h3>
+                                <div class="flex items-center gap-2 mt-1 text-gray-600"
+                                    data-fg-b9eq83="1.43:1.12195:/src/app/pages/FindDonor.tsx:244:23:9763:308:e:div:etete"
+                                    data-fgid-b9eq83=":rbs:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-map-pin w-4 h-4"
+                                        data-fg-b9eq84="1.43:1.12195:/src/app/pages/FindDonor.tsx:245:25:9848:30:e:MapPin::::::BveZ"
+                                        data-fgid-b9eq84=":rbt:">
+                                        <path
+                                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                        </path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg><span class="text-sm"
+                                        data-fg-b9eq85="1.43:1.12195:/src/app/pages/FindDonor.tsx:246:25:9903:49:e:span:x"
+                                        data-fgid-b9eq85=":rbu:">Queens, NY</span><span class="text-sm text-gray-400"
+                                        data-fg-b9eq87="1.43:1.12195:/src/app/pages/FindDonor.tsx:247:25:9977:65:e:span:tx"
+                                        data-fgid-b9eq87=":rbv:">• 6.1 km</span></div>
+                                <p class="text-sm text-gray-500 mt-1"
+                                    data-fg-b9eq90="1.43:1.12195:/src/app/pages/FindDonor.tsx:249:23:10094:81:e:p:tx"
+                                    data-fgid-b9eq90=":rc0:">Last donation: 1 week ago</p>
+                            </div>
+                        </div>
+                        <div class="text-right"
+                            data-fg-b9eq93="1.43:1.12195:/src/app/pages/FindDonor.tsx:253:19:10247:757:e:div:ete"
+                            data-fgid-b9eq93=":rc1:">
+                            <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full mb-2"
+                                data-fg-b9eq94="1.43:1.12195:/src/app/pages/FindDonor.tsx:254:21:10296:191:e:div:e"
+                                data-fgid-b9eq94=":rc2:"><span class="text-xl font-bold"
+                                    data-fg-b9eq95="1.43:1.12195:/src/app/pages/FindDonor.tsx:255:23:10399:61:e:span:x"
+                                    data-fgid-b9eq95=":rc3:">B+</span></div>
+                            <div data-fg-b9eq97="1.43:1.12195:/src/app/pages/FindDonor.tsx:257:21:10508:471:e:div:e"
+                                data-fgid-b9eq97=":rc4:"><span
+                                    class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700"
+                                    data-fg-b9eq98="1.43:1.12195:/src/app/pages/FindDonor.tsx:258:23:10536:416:e:span:x"
+                                    data-fgid-b9eq98=":rc5:">Not Available</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all hover:shadow-xl "
+                    data-fg-delx0="1.35:1.287:/src/app/components/Card.tsx:10:5:185:94:e:div:c:1"
+                    data-fgid-delx0=":rc7:" data-fg-callsite-b9eq75="">
+                    <div class="flex items-start justify-between"
+                        data-fg-b9eq76="1.43:1.12195:/src/app/pages/FindDonor.tsx:237:17:9291:1736:e:div:ete"
+                        data-fgid-b9eq76=":rc8:">
+                        <div class="flex items-start gap-4"
+                            data-fg-b9eq77="1.43:1.12195:/src/app/pages/FindDonor.tsx:238:19:9360:867:e:div:ete"
+                            data-fgid-b9eq77=":rc9:">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"
+                                data-fg-b9eq78="1.43:1.12195:/src/app/pages/FindDonor.tsx:239:21:9421:205:e:div:e"
+                                data-fgid-b9eq78=":rca:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-droplet w-8 h-8 text-red-600 fill-red-600"
+                                    data-fg-b9eq79="1.43:1.12195:/src/app/pages/FindDonor.tsx:240:23:9542:57:e:Droplet::::::BBBa"
+                                    data-fgid-b9eq79=":rcb:">
+                                    <path
+                                        d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                    </path>
+                                </svg></div>
+                            <div data-fg-b9eq80="1.43:1.12195:/src/app/pages/FindDonor.tsx:242:21:9647:555:e:div:etete"
+                                data-fgid-b9eq80=":rcc:">
+                                <h3 class="text-xl font-bold text-gray-900"
+                                    data-fg-b9eq81="1.43:1.12195:/src/app/pages/FindDonor.tsx:243:23:9675:65:e:h3:x"
+                                    data-fgid-b9eq81=":rcd:">David Wilson</h3>
+                                <div class="flex items-center gap-2 mt-1 text-gray-600"
+                                    data-fg-b9eq83="1.43:1.12195:/src/app/pages/FindDonor.tsx:244:23:9763:308:e:div:etete"
+                                    data-fgid-b9eq83=":rce:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-map-pin w-4 h-4"
+                                        data-fg-b9eq84="1.43:1.12195:/src/app/pages/FindDonor.tsx:245:25:9848:30:e:MapPin::::::BveZ"
+                                        data-fgid-b9eq84=":rcf:">
+                                        <path
+                                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                        </path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg><span class="text-sm"
+                                        data-fg-b9eq85="1.43:1.12195:/src/app/pages/FindDonor.tsx:246:25:9903:49:e:span:x"
+                                        data-fgid-b9eq85=":rcg:">Bronx, NY</span><span class="text-sm text-gray-400"
+                                        data-fg-b9eq87="1.43:1.12195:/src/app/pages/FindDonor.tsx:247:25:9977:65:e:span:tx"
+                                        data-fgid-b9eq87=":rch:">• 7.8 km</span></div>
+                                <p class="text-sm text-gray-500 mt-1"
+                                    data-fg-b9eq90="1.43:1.12195:/src/app/pages/FindDonor.tsx:249:23:10094:81:e:p:tx"
+                                    data-fgid-b9eq90=":rci:">Last donation: 4 months ago</p>
+                            </div>
+                        </div>
+                        <div class="text-right"
+                            data-fg-b9eq93="1.43:1.12195:/src/app/pages/FindDonor.tsx:253:19:10247:757:e:div:ete"
+                            data-fgid-b9eq93=":rcj:">
+                            <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full mb-2"
+                                data-fg-b9eq94="1.43:1.12195:/src/app/pages/FindDonor.tsx:254:21:10296:191:e:div:e"
+                                data-fgid-b9eq94=":rck:"><span class="text-xl font-bold"
+                                    data-fg-b9eq95="1.43:1.12195:/src/app/pages/FindDonor.tsx:255:23:10399:61:e:span:x"
+                                    data-fgid-b9eq95=":rcl:">AB+</span></div>
+                            <div data-fg-b9eq97="1.43:1.12195:/src/app/pages/FindDonor.tsx:257:21:10508:471:e:div:e"
+                                data-fgid-b9eq97=":rcm:"><span
+                                    class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700"
+                                    data-fg-b9eq98="1.43:1.12195:/src/app/pages/FindDonor.tsx:258:23:10536:416:e:span:x"
+                                    data-fgid-b9eq98=":rcn:">Available</span></div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 mt-4 pt-4 border-t border-gray-200"
+                        data-fg-b9eq101="1.43:1.12195:/src/app/pages/FindDonor.tsx:272:19:11085:989:e:div:ete"
+                        data-fgid-b9eq101=":rco:"><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium bg-red-600 text-white hover:bg-red-700 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":rcq:" data-fg-callsite-b9eq102=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-phone w-4 h-4"
+                                data-fg-b9eq103="1.43:1.12195:/src/app/pages/FindDonor.tsx:281:23:11507:29:e:Phone::::::DmpI"
+                                data-fgid-b9eq103=":rcr:">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>Call</button><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium border-2 border-red-600 text-red-600 hover:bg-red-50 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":rct:" data-fg-callsite-b9eq105=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-message-circle w-4 h-4"
+                                data-fg-b9eq106="1.43:1.12195:/src/app/pages/FindDonor.tsx:292:23:11952:37:e:MessageCircle::::::DDY7"
+                                data-fgid-b9eq106=":rcu:">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                            </svg>Message</button></div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 cursor-pointer transition-all hover:shadow-xl "
+                    data-fg-delx0="1.35:1.287:/src/app/components/Card.tsx:10:5:185:94:e:div:c:1"
+                    data-fgid-delx0=":rd0:" data-fg-callsite-b9eq75="">
+                    <div class="flex items-start justify-between"
+                        data-fg-b9eq76="1.43:1.12195:/src/app/pages/FindDonor.tsx:237:17:9291:1736:e:div:ete"
+                        data-fgid-b9eq76=":rd1:">
+                        <div class="flex items-start gap-4"
+                            data-fg-b9eq77="1.43:1.12195:/src/app/pages/FindDonor.tsx:238:19:9360:867:e:div:ete"
+                            data-fgid-b9eq77=":rd2:">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"
+                                data-fg-b9eq78="1.43:1.12195:/src/app/pages/FindDonor.tsx:239:21:9421:205:e:div:e"
+                                data-fgid-b9eq78=":rd3:"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-droplet w-8 h-8 text-red-600 fill-red-600"
+                                    data-fg-b9eq79="1.43:1.12195:/src/app/pages/FindDonor.tsx:240:23:9542:57:e:Droplet::::::BBBa"
+                                    data-fgid-b9eq79=":rd4:">
+                                    <path
+                                        d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                    </path>
+                                </svg></div>
+                            <div data-fg-b9eq80="1.43:1.12195:/src/app/pages/FindDonor.tsx:242:21:9647:555:e:div:etete"
+                                data-fgid-b9eq80=":rd5:">
+                                <h3 class="text-xl font-bold text-gray-900"
+                                    data-fg-b9eq81="1.43:1.12195:/src/app/pages/FindDonor.tsx:243:23:9675:65:e:h3:x"
+                                    data-fgid-b9eq81=":rd6:">Lisa Anderson</h3>
+                                <div class="flex items-center gap-2 mt-1 text-gray-600"
+                                    data-fg-b9eq83="1.43:1.12195:/src/app/pages/FindDonor.tsx:244:23:9763:308:e:div:etete"
+                                    data-fgid-b9eq83=":rd7:"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-map-pin w-4 h-4"
+                                        data-fg-b9eq84="1.43:1.12195:/src/app/pages/FindDonor.tsx:245:25:9848:30:e:MapPin::::::BveZ"
+                                        data-fgid-b9eq84=":rd8:">
+                                        <path
+                                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                        </path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg><span class="text-sm"
+                                        data-fg-b9eq85="1.43:1.12195:/src/app/pages/FindDonor.tsx:246:25:9903:49:e:span:x"
+                                        data-fgid-b9eq85=":rd9:">Staten Island, NY</span><span
+                                        class="text-sm text-gray-400"
+                                        data-fg-b9eq87="1.43:1.12195:/src/app/pages/FindDonor.tsx:247:25:9977:65:e:span:tx"
+                                        data-fgid-b9eq87=":rda:">• 9.2 km</span></div>
+                                <p class="text-sm text-gray-500 mt-1"
+                                    data-fg-b9eq90="1.43:1.12195:/src/app/pages/FindDonor.tsx:249:23:10094:81:e:p:tx"
+                                    data-fgid-b9eq90=":rdb:">Last donation: 5 months ago</p>
+                            </div>
+                        </div>
+                        <div class="text-right"
+                            data-fg-b9eq93="1.43:1.12195:/src/app/pages/FindDonor.tsx:253:19:10247:757:e:div:ete"
+                            data-fgid-b9eq93=":rdc:">
+                            <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full mb-2"
+                                data-fg-b9eq94="1.43:1.12195:/src/app/pages/FindDonor.tsx:254:21:10296:191:e:div:e"
+                                data-fgid-b9eq94=":rdd:"><span class="text-xl font-bold"
+                                    data-fg-b9eq95="1.43:1.12195:/src/app/pages/FindDonor.tsx:255:23:10399:61:e:span:x"
+                                    data-fgid-b9eq95=":rde:">O-</span></div>
+                            <div data-fg-b9eq97="1.43:1.12195:/src/app/pages/FindDonor.tsx:257:21:10508:471:e:div:e"
+                                data-fgid-b9eq97=":rdf:"><span
+                                    class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700"
+                                    data-fg-b9eq98="1.43:1.12195:/src/app/pages/FindDonor.tsx:258:23:10536:416:e:span:x"
+                                    data-fgid-b9eq98=":rdg:">Available</span></div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 mt-4 pt-4 border-t border-gray-200"
+                        data-fg-b9eq101="1.43:1.12195:/src/app/pages/FindDonor.tsx:272:19:11085:989:e:div:ete"
+                        data-fgid-b9eq101=":rdh:"><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium bg-red-600 text-white hover:bg-red-700 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":rdj:" data-fg-callsite-b9eq102=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-phone w-4 h-4"
+                                data-fg-b9eq103="1.43:1.12195:/src/app/pages/FindDonor.tsx:281:23:11507:29:e:Phone::::::DmpI"
+                                data-fgid-b9eq103=":rdk:">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>Call</button><button type="button"
+                            class="px-6 py-3 rounded-lg transition font-medium border-2 border-red-600 text-red-600 hover:bg-red-50 flex-1 flex items-center justify-center gap-2"
+                            data-fg-clh10="1.34:1.785:/src/app/components/Button.tsx:21:5:623:154:e:button:c:1"
+                            data-fgid-clh10=":rdm:" data-fg-callsite-b9eq105=""><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-message-circle w-4 h-4"
+                                data-fg-b9eq106="1.43:1.12195:/src/app/pages/FindDonor.tsx:292:23:11952:37:e:MessageCircle::::::DDY7"
+                                data-fgid-b9eq106=":rdn:">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                            </svg>Message</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,190 @@
+{% extends 'bloodconnect/layouts/main_layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block main %}
+    <div classNclassame="min-h-screen bg-gray-50">
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {% comment %} Header {% endcomment %}
+        <div class="flex justify-between items-center mb-8">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+            <p class="text-gray-600 mt-1">Welcome back, {{ mockCurrentUser.name }}!</p>
+          </div>
+          <a
+            href="{% url 'bloodconnect:logout' %}"
+            class="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-red-600 transition-colors"
+          >
+            {% include 'bloodconnect/components/logout_icon.html' with classname="w-5 h-5" %}
+            <span>Logout</span>
+        </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {% comment %} Profile Card {% endcomment %}
+          <div class="lg:col-span-1">
+            <div class="bg-white rounded-xl shadow-md p-6">
+              <div class="text-center mb-6">
+                <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  {% include 'bloodconnect/components/user_icon.html' with classname="w-12 h-12 text-red-600" %}
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900">{{ mockCurrentUser.name }}</h2>
+                <p class="text-gray-600">{{ mockCurrentUser.email }}</p>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  {% include 'bloodconnect/components/droplet.html' with class="w-5 h-5 text-red-600" %}
+                  <div>
+                    <p class="text-sm text-gray-600">Blood Group</p>
+                    <p class="font-semibold text-gray-900">{{ mockCurrentUser.bloodGroup }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  {% include 'bloodconnect/components/phone_icon.html' with class="w-5 h-5 text-red-600" %}
+                  <div>
+                    <p class="text-sm text-gray-600">Phone</p>
+                    <p class="font-semibold text-gray-900">{{ mockCurrentUser.phone }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  {% include 'bloodconnect/components/mappin.html' with class="w-5 h-5 text-red-600" %}
+                  <div>
+                    <p class="text-sm text-gray-600">Location</p>
+                    <p class="font-semibold text-gray-900">{{ mockCurrentUser.location }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  {% include 'bloodconnect/components/email_icon.html' with class="w-5 h-5 text-red-600" %}
+                  <div>
+                    <p class="text-sm text-gray-600">User Type</p>
+                    <p class="font-semibold text-gray-900 capitalize">{{ mockCurrentUser.userType }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <button class="w-full mt-6 flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                {% include 'bloodconnect/components/edit_icon.html' with classname="w-5 h-5" %}
+                <span>Edit Profile</span>
+              </button>
+            </div>
+          </div>
+
+          {% comment %} Main Content {% endcomment %}
+          <div class="lg:col-span-2 space-y-6">
+            {% comment %} Availability Toggle {% endcomment %}
+            {% comment %} {mockCurrentUser.userType === 'donor' && ( {% endcomment %}
+              <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Availability Status</h3>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div>
+                    <p class="font-semibold text-gray-900">I am currently available to donate</p>
+                    <p class="text-sm text-gray-600 mt-1">
+                      Toggle this to let recipients know you're available
+                    </p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      {% comment %} checked={availability}
+                      onChange={(e) => setAvailability(e.target.checked)}
+                      {% endcomment %}
+                      class="sr-only peer"
+                    />
+                    <div class="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-red-600"></div>
+                  </label>
+                </div>
+              </div>
+            {% comment %} )} {% endcomment %}
+
+            {% comment %} {/* Quick Actions */} {% endcomment %}
+            <div class="bg-white rounded-xl shadow-md p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <button
+                  {% comment %} onClick={() => navigate('/find-donor')} {% endcomment %}
+                  class="flex items-center gap-3 p-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  {% include 'bloodconnect/components/search_icon.html' with classname="w-6 h-6" %}
+                  <div class="text-left">
+                    <p class="font-semibold">Find Blood Donors</p>
+                    <p class="text-sm text-red-100">Search nearby donors</p>
+                  </div>
+                </button>
+
+                <button class="flex items-center gap-3 p-4 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                  {% include 'bloodconnect/components/calendar_icon.html' with class="w-6 h-6" %}
+                  <div class="text-left">
+                    <p class="font-semibold">Donation History</p>
+                    <p class="text-sm text-gray-600">View your records</p>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {% comment %} {/* Recent Activity */} {% endcomment %}
+            <div class="bg-white rounded-xl shadow-md p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Recent Activity</h3>
+              <div class="space-y-4">
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                  <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    {% include 'bloodconnect/components/droplet.html' with classname="w-5 h-5 text-green-600" %}
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-gray-900">Successfully donated blood</p>
+                    <p class="text-sm text-gray-600 mt-1">You donated to Central Hospital</p>
+                    <p class="text-xs text-gray-500 mt-1">February 15, 2026</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                  <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    {% include 'bloodconnect/components/user_icon.html' with classname="w-5 h-5 text-blue-600" %}
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-gray-900">Profile updated</p>
+                    <p class="text-sm text-gray-600 mt-1">You updated your contact information</p>
+                    <p class="text-xs text-gray-500 mt-1">January 28, 2026</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                  <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    {% include 'bloodconnect/components/search_icon.html' with classname="w-5 h-5 text-purple-600" %}
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-gray-900">Search performed</p>
+                    <p class="text-sm text-gray-600 mt-1">You searched for O- blood donors</p>
+                    <p class="text-xs text-gray-500 mt-1">January 20, 2026</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {% comment %} Statistics {% endcomment %}
+            <div class="bg-white rounded-xl shadow-md p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Your Impact</h3>
+              <div class="grid grid-cols-3 gap-4">
+                <div class="text-center p-4 bg-red-50 rounded-lg">
+                  <p class="text-3xl font-bold text-red-600">5</p>
+                  <p class="text-sm text-gray-600 mt-1">Lives Saved</p>
+                </div>
+                <div class="text-center p-4 bg-red-50 rounded-lg">
+                  <p class="text-3xl font-bold text-red-600">2.5L</p>
+                  <p class="text-sm text-gray-600 mt-1">Blood Donated</p>
+                </div>
+                <div class="text-center p-4 bg-red-50 rounded-lg">
+                  <p class="text-3xl font-bold text-red-600">24</p>
+                  <p class="text-sm text-gray-600 mt-1">Months Active</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

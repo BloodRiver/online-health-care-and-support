@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Blood Connect - {% block title %}{% endblock %}</title>
+
+        <!-- Load Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Font Awesome CDN from cdnjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        {% if not skipNavbar %}
+            <nav class="bg-white shadow-sm border-b border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-16">
+                    <a href="{% url 'bloodconnect:index' %}" class="flex items-center gap-2">
+                        <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                            {% include 'bloodconnect/components/droplet.html' with classname='w-6 h-6 text-white fill-white' %}
+                        </div>
+                        <span class="text-xl font-semibold text-gray-900">BloodConnect</span>
+                    </a>
+
+                    <div class="flex items-center gap-8">
+                        <a href="{% url 'bloodconnect:index' %}"
+                        class="text-sm font-medium {% if request.resolver_match.view_name == 'bloodconnect:index' %}text-red-600{% else %}text-gray-600 hover:text-red-600{% endif %} transition-colors"
+                        >
+                        Home
+                        </a>
+                        <a href="{% url 'bloodconnect:find_donor' %}"
+                        class="text-sm font-medium {% if request.resolver_match.view_name == 'bloodconnect:find_donor' %}text-red-600{% else %} text-gray-600 hover:text-red-600 transition-colors{% endif %}"
+                        >
+                        Find Donor
+                        </a>
+                        <a href="{% url 'bloodconnect:register' %}"
+                        class="text-sm font-medium {% if request.resolver_match.view_name == 'bloodconnect:register' %}text-red-600{% else %} text-gray-600 hover:text-red-600 transition-colors{% endif %}">
+                        Register
+                        </a>
+                        <a
+                        href="{% url 'bloodconnect:login' %}"
+                        class='flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors {% if request.resolver_match.view_name == "bloodconnect:login" %} ring-2 ring-red-300{% endif %}'
+                        >
+                        {% include "bloodconnect/components/user_icon.html" with classname="w-4 h-4" %}
+                        <span class="text-sm font-medium">Login</span>
+                    </a>
+                    </div>
+                    </div>
+                </div>
+            </nav>
+        {% endif %}
+
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+        <footer class="bg-gray-900 text-white py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">&copy; 2026 BloodConnect. All rights reserved. Saving lives together.</p>
+            </div>
+        </footer>
+    </body>
+
+    {% block script %}
+    {% endblock %}
+</html>

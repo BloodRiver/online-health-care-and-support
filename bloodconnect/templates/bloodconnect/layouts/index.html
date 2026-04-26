@@ -1,0 +1,181 @@
+{% extends 'bloodconnect/layouts/main_layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+{% endblock %}
+
+{% block main %}
+    <div class="min-h-screen bg-gray-50">
+
+
+      <section class="bg-gradient-to-r from-red-600 to-red-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-5xl font-bold mb-6">Save Lives Through Blood Donation</h1>
+            <p class="text-xl mb-8 text-red-50">
+              Connect with nearby blood donors instantly during emergencies. Fast, reliable, and life-saving.
+            </p>
+
+
+            <div class="bg-white rounded-xl shadow-2xl p-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative">
+                  {% include 'bloodconnect/components/droplet.html' with classname='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400'%}
+                  <select
+                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-red-500 outline-none focus:border-transparent"
+                  >
+                    <option value="">Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                  </select>
+                </div>
+
+                <div class="relative">
+                  {% include 'bloodconnect/components/mappin.html' with classname='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400'%}
+                  <input
+                    type="text"
+                    placeholder="Enter your location"
+                    {% comment %} onChange={(e) => setLocation(e.target.value)} {% endcomment %}
+                    class="outline-none w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  >
+                </div>
+
+                <button
+                  {% comment %} onClick={handleSearch} {% endcomment %}
+                  class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center gap-2"
+                >
+                  {% include 'bloodconnect/components/search_icon.html' with classname='w-5 h-5'%}
+                  Find Blood Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Nearby Donors</h2>
+            <p class="text-lg text-gray-600">Real-time location of available blood donors in your area</p>
+        </div>
+
+        <!-- Responsive Map Container -->
+        <div 
+            id="map" 
+            class="w-full h-[300px] md:h-[500px] lg:h-[600px]"
+        ></div>
+    </section>
+
+      <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">How BloodConnect Works</h2>
+            <p class="text-lg text-gray-600">Simple steps to save a life</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                {% include 'bloodconnect/components/search_icon.html' with classname="w-8 h-8 text-red-600" %}
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">1. Search for Donors</h3>
+              <p class="text-gray-600">
+                Enter the required blood group and your location to find nearby donors instantly.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                {% include 'bloodconnect/components/mappin.html' with classname="w-8 h-8 text-red-600" %}
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">2. View on Map</h3>
+              <p class="text-gray-600">
+                See available donors on an interactive map with distance and availability status.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                {% include 'bloodconnect/components/heart_icon.html' with classname="w-8 h-8 text-red-600" %}
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">3. Contact & Save</h3>
+              <p class="text-gray-600">
+                Connect with donors directly through call or message to arrange donation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl shadow-md p-8 text-center">
+            {% include 'bloodconnect/components/users_icon.html' with classname="w-12 h-12 text-red-600 mx-auto mb-4" %}
+            <p class="text-4xl font-bold text-gray-900 mb-2">1,247</p>
+            <p class="text-gray-600">Registered Donors</p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md p-8 text-center">
+            {% include 'bloodconnect/components/droplet.html' with classname="w-12 h-12 text-red-600 mx-auto mb-4" %}
+            <p class="text-4xl font-bold text-gray-900 mb-2">3,421</p>
+            <p class="text-gray-600">Lives Saved</p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md p-8 text-center">
+            {% include 'bloodconnect/components/clock_icon.html' with classname="w-12 h-12 text-red-600 mx-auto mb-4" %}
+            <p class="text-4xl font-bold text-gray-900 mb-2">&lt; 15 min</p>
+            <p class="text-gray-600">Average Response Time</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-red-600 text-white py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl font-bold mb-4">Ready to Make a Difference?</h2>
+          <p class="text-xl mb-8 text-red-50">
+            Join our community of life-savers today and help those in need during emergencies.
+          </p>
+          <div class="flex gap-4 justify-center">
+            <button
+              {% comment %} onClick={() => navigate('/register')} {% endcomment %}
+              class="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            >
+              Register as Donor
+            </button>
+            <button
+              {% comment %} onClick={() => navigate('/find-donor')} {% endcomment %}
+              class="bg-red-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-800 transition-colors border-2 border-white"
+            >
+              Find Blood Now
+            </button>
+          </div>
+        </div>
+      </section>
+{% endblock %}
+
+
+{% block script %}
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+  <script type="text/javascript">
+      var map = L.map('map').setView([51.505, -0.09], 13);
+      L.TileLayer.prototype.options.referrerPolicy = 'strict-origin-when-cross-origin';
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+  </script>
+{% endblock %}
