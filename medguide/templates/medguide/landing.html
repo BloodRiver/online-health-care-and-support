@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'medguide/style.css' %}">
+    <title>MedGuide | Welcome</title>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>MedGuide</h1>
+        <p>Pre-screening and Doctor Recommendation System</p>
+        <div class="disclaimer">
+            <strong>Medical Disclaimer:</strong> This is a rule-based tool for organizational assistance. It is NOT a clinical diagnosis and should not replace professional medical advice.
+        </div>
+        <p>Prepare for your consultation by documenting your symptoms accurately.</p>
+        <a href="{% url 'medguide:selection' %}" class="btn btn-primary">Start Pre-screening</a>
+    </div>
+</body>
+</html>
