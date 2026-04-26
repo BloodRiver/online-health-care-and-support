@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMed: An AI-Driven Clinical Decision Support System for Medical Diagnosis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .symptom-tag {
+            transition: all 0.2s ease;
+        }
+
+        .symptom-tag:hover {
+            transform: translateY(-1px);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .analyzing-pulse {
+            animation: pulse-soft 2s infinite;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4 shadow-lg">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="fas fa-microchip text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight">SmartMed</h1>
+                    <p class="text-xs opacity-75 uppercase tracking-widest font-semibold">An AI-Driven Clinical Decision Support System for Medical Diagnosis</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-medium">
+                <span class="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    System Online
+                </span>
+                <button class="hover:underline opacity-80" onclick="resetApp()">Clear Session</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Column: Input -->
+        <div class="lg:col-span-5 space-y-6">
+            <section class="glass-card rounded-2xl p-6 shadow-sm">
+                <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-slate-700">
+                    <i class="fas fa-stethoscope text-blue-500"></i>
+                    Describe Your Symptoms
+                </h2>
+                
+                <div class="relative mb-4">
+                    <i class="fas fa-search absolute left-3 top-3.5 text-slate-400"></i>
+                    <input 
+                        type="text" 
+                        id="symptomSearch"
+                        placeholder="Search symptoms (e.g. fever, cough...)" 
+                        class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                        oninput="filterAvailableSymptoms()"
+                    >
+                </div>
+
+                <div class="mb-4">
+                    <p class="text-xs font-bold text-slate-400 uppercase mb-2">Selected Symptoms</p>
+                    <div id="selectedContainer" class="flex flex-wrap gap-2 min-h-[40px] p-3 bg-blue-50/50 rounded-xl border border-dashed border-blue-200">
+                        <!-- Selected tags appear here -->
+                        <p id="placeholderText" class="text-slate-400 text-sm italic">No symptoms selected yet...</p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-xs font-bold text-slate-400 uppercase mb-2">Available Symptoms</p>
+                    <div id="availableContainer" class="flex flex-wrap gap-2 max-h-60 overflow-y-auto custom-scrollbar pr-2">
+                        <!-- Available tags appear here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Results -->
+        <div class="lg:col-span-7">
+            <section class="glass-card rounded-2xl shadow-sm overflow-hidden h-full flex flex-col">
+                <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                    <h2 class="text-lg font-bold text-slate-700">AI Diagnostic Results</h2>
+                    <div id="statusBadge" class="hidden text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold analyzing-pulse">
+                        ANALYZING...
+                    </div>
+                </div>
+
+                <div id="resultsContainer" class="flex-1 p-6 space-y-4 overflow-y-auto custom-scrollbar">
+                    <!-- Default State -->
+                    <div id="emptyResults" class="flex flex-col items-center justify-center h-full py-12 opacity-40">
+                        <i class="fas fa-brain text-6xl mb-4"></i>
+                        <p class="text-lg">Select symptoms to begin analysis</p>
+                    </div>
+
+                    <!-- Result items will be injected here -->
+                </div>
+
+                <div class="p-6 bg-slate-50 border-t border-slate-100">
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-slate-500">Processed <span id="processedCount">0</span> potential conditions</span>
+                        <!--<span class="font-mono font-bold text-blue-600">v4.2-STABLE</span>-->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal for details -->
+    <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden transform transition-all">
+            <div id="modalHeader" class="p-6 text-white flex justify-between items-start">
+                <div>
+                    <h3 id="modalTitle" class="text-2xl font-bold">Condition Title</h3>
+                    <p id="modalConfidence" class="text-sm opacity-90"></p>
+                </div>
+                <button onclick="closeModal()" class="bg-black/20 hover:bg-black/40 p-2 rounded-full transition-colors">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">Description</h4>
+                    <p id="modalDesc" class="text-slate-600 leading-relaxed"></p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-3 rounded-xl">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Common In</h4>
+                        <p id="modalDemographics" class="text-sm font-medium">General Population</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Severity</h4>
+                        <p id="modalSeverity" class="text-sm font-medium"></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">Recommended Actions</h4>
+                    <ul id="modalActions" class="space-y-2">
+                        <!-- Action items -->
+                    </ul>
+                </div>
+                <button onclick="closeModal()" class="w-full py-4 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors">
+                    Understood
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Structure
+        const symptoms = [
+            "Fever", "Cough", "Headache", "Fatigue", "Sore Throat", 
+            "Shortness of Breath", "Body Aches", "Loss of Taste/Smell", 
+            "Nausea", "Diarrhea", "Congestion", "Chest Pain", 
+            "Dizziness", "Skin Rash", "Sneezing", "Chills",
+            "Joint Pain", "Night Sweats", "Earache", "Blurred Vision"
+        ];
+
+        const diseases = [
+            {
+                name: "Common Cold",
+                symptoms: ["Cough", "Sneezing", "Sore Throat", "Congestion", "Fatigue"],
+                description: "A viral infection of your nose and throat (upper respiratory tract). It's usually harmless, although it might not feel that way.",
+                severity: "Low",
+                color: "bg-emerald-500",
+                actions: ["Rest and fluids", "Over-the-counter decongestants", "Salt water gargle"]
+            },
+            {
+                name: "Influenza (Flu)",
+                symptoms: ["Fever", "Cough", "Fatigue", "Body Aches", "Chills", "Headache"],
+                description: "A common viral infection that can be deadly, especially in high-risk groups. The flu attacks the lungs, nose, and throat.",
+                severity: "Moderate",
+                color: "bg-amber-500",
+                actions: ["Prescription antivirals", "Rest and isolation", "Monitor temperature"]
+            },
+            {
+                name: "COVID-19",
+                symptoms: ["Fever", "Cough", "Fatigue", "Loss of Taste/Smell", "Shortness of Breath", "Body Aches"],
+                description: "An infectious disease caused by the SARS-CoV-2 virus. Symptoms range from mild to severe respiratory illness.",
+                severity: "Moderate to High",
+                color: "bg-red-500",
+                actions: ["Self-isolation", "PCR Testing", "Pulse oximeter monitoring", "Emergency care if breathing is difficult"]
+            },
+            {
+                name: "Migraine",
+                symptoms: ["Headache", "Nausea", "Dizziness", "Blurred Vision"],
+                description: "A headache that can cause severe throbbing pain or a pulsing sensation, usually on one side of the head.",
+                severity: "Moderate",
+                color: "bg-purple-500",
+                actions: ["Dark, quiet room", "Hydration", "Specific migraine medications"]
+            },
+            {
+                name: "Allergies",
+                symptoms: ["Sneezing", "Congestion", "Sore Throat", "Skin Rash"],
+                description: "A condition in which the immune system reacts abnormally to a foreign substance.",
+                severity: "Low",
+                color: "bg-blue-400",
+                actions: ["Avoid triggers", "Antihistamines", "Nasal spray"]
+            },
+            {
+                name: "Bronchitis",
+                symptoms: ["Cough", "Fatigue", "Shortness of Breath", "Chest Pain", "Congestion"],
+                description: "Inflammation of the lining of your bronchial tubes, which carry air to and from your lungs.",
+                severity: "Moderate",
+                color: "bg-orange-600",
+                actions: ["Humidifier use", "Bronchodilators", "Avoid smoke/pollutants"]
+            }
+        ];
+
+        let selectedSymptoms = new Set();
+
+        // Initialization
+        window.onload = () => {
+            renderAvailableSymptoms();
+            updateResults();
+        };
+
+        function renderAvailableSymptoms() {
+            const container = document.getElementById('availableContainer');
+            const query = document.getElementById('symptomSearch').value.toLowerCase();
+            
+            container.innerHTML = '';
+            symptoms.filter(s => s.toLowerCase().includes(query) && !selectedSymptoms.has(s))
+                    .sort()
+                    .forEach(s => {
+                        const btn = document.createElement('button');
+                        btn.className = 'symptom-tag px-3 py-1.5 bg-white border border-slate-200 rounded-full text-sm font-medium hover:bg-blue-50 hover:border-blue-300 transition-all text-slate-600';
+                        btn.innerHTML = `<i class="fas fa-plus text-[10px] mr-1.5 opacity-40"></i> ${s}`;
+                        btn.onclick = () => addSymptom(s);
+                        container.appendChild(btn);
+                    });
+        }
+
+        function filterAvailableSymptoms() {
+            renderAvailableSymptoms();
+        }
+
+        function addSymptom(s) {
+            selectedSymptoms.add(s);
+            renderSelectedSymptoms();
+            renderAvailableSymptoms();
+            runInference();
+        }
+
+        function removeSymptom(s) {
+            selectedSymptoms.delete(s);
+            renderSelectedSymptoms();
+            renderAvailableSymptoms();
+            runInference();
+        }
+
+        function renderSelectedSymptoms() {
+            const container = document.getElementById('selectedContainer');
+            const placeholder = document.getElementById('placeholderText');
+            
+            // Clear existing except placeholder
+            Array.from(container.children).forEach(child => {
+                if(child.id !== 'placeholderText') child.remove();
+            });
+
+            if (selectedSymptoms.size === 0) {
+                placeholder.classList.remove('hidden');
+            } else {
+                placeholder.classList.add('hidden');
+                selectedSymptoms.forEach(s => {
+                    const tag = document.createElement('div');
+                    tag.className = 'flex items-center gap-2 px-3 py-1.5 bg-blue-600 text-white rounded-full text-sm font-bold shadow-sm animate-in fade-in zoom-in duration-200';
+                    tag.innerHTML = `
+                        ${s}
+                        <button onclick="removeSymptom('${s}')" class="hover:bg-white/20 rounded-full w-5 h-5 flex items-center justify-center transition-colors">
+                            <i class="fas fa-times text-[10px]"></i>
+                        </button>
+                    `;
+                    container.appendChild(tag);
+                });
+            }
+        }
+
+        function runInference() {
+            const badge = document.getElementById('statusBadge');
+            if (selectedSymptoms.size > 0) {
+                badge.classList.remove('hidden');
+                setTimeout(() => {
+                    updateResults();
+                    badge.classList.add('hidden');
+                }, 400); // Artificial "Processing" delay for "AI" feel
+            } else {
+                updateResults();
+                badge.classList.add('hidden');
+            }
+        }
+
+        function updateResults() {
+            const container = document.getElementById('resultsContainer');
+            const emptyState = document.getElementById('emptyResults');
+            const countDisplay = document.getElementById('processedCount');
+            
+            countDisplay.innerText = diseases.length;
+
+            if (selectedSymptoms.size === 0) {
+                emptyState.classList.remove('hidden');
+                // Clear existing results
+                Array.from(container.children).forEach(c => {
+                    if(c.id !== 'emptyResults') c.remove();
+                });
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            
+            // Calculate Scores
+            const scoredDiseases = diseases.map(d => {
+                const matches = d.symptoms.filter(s => selectedSymptoms.has(s));
+                // Advanced Score: Weight based on proportion of matched symptoms + a baseline
+                const score = (matches.length / d.symptoms.length) * 0.7 + (matches.length / selectedSymptoms.size) * 0.3;
+                return { ...d, score: Math.round(score * 100), matchCount: matches.length };
+            }).filter(d => d.matchCount > 0)
+              .sort((a, b) => b.score - a.score);
+
+            // Clear and Render
+            Array.from(container.children).forEach(c => {
+                if(c.id !== 'emptyResults') c.remove();
+            });
+
+            if (scoredDiseases.length === 0) {
+                const noMatch = document.createElement('div');
+                noMatch.className = 'text-center py-12 text-slate-400';
+                noMatch.innerHTML = '<i class="fas fa-search-minus text-4xl mb-2"></i><p>No matches found for this combination.</p>';
+                container.appendChild(noMatch);
+                return;
+            }
+
+            scoredDiseases.forEach(d => {
+                const item = document.createElement('div');
+                item.className = 'group p-5 bg-white border border-slate-200 rounded-2xl hover:border-blue-400 hover:shadow-md transition-all cursor-pointer';
+                item.onclick = () => openModal(d);
+                
+                const progressColor = d.score > 70 ? 'bg-blue-600' : d.score > 40 ? 'bg-blue-400' : 'bg-slate-300';
+
+                item.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-lg group-hover:text-blue-600 transition-colors">${d.name}</h3>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-tight">${d.matchCount} matching symptoms</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-slate-800">${d.score}%</span>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase">Confidence</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <div class="h-full ${progressColor} transition-all duration-500" style="width: ${d.score}%"></div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Modal Logic
+        function openModal(disease) {
+            const modal = document.getElementById('detailModal');
+            const header = document.getElementById('modalHeader');
+            const title = document.getElementById('modalTitle');
+            const confidence = document.getElementById('modalConfidence');
+            const desc = document.getElementById('modalDesc');
+            const severity = document.getElementById('modalSeverity');
+            const actions = document.getElementById('modalActions');
+
+            header.className = `p-6 text-white flex justify-between items-start ${disease.color}`;
+            title.innerText = disease.name;
+            confidence.innerText = `${disease.score}% Match Confidence Rating`;
+            desc.innerText = disease.description;
+            severity.innerText = disease.severity;
+            
+            actions.innerHTML = '';
+            disease.actions.forEach(act => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center gap-3 text-sm text-slate-600 bg-slate-50 p-2 rounded-lg';
+                li.innerHTML = `<i class="fas fa-check-circle text-blue-500"></i> ${act}`;
+                actions.appendChild(li);
+            });
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').classList.add('hidden');
+        }
+
+        function resetApp() {
+            selectedSymptoms.clear();
+            renderSelectedSymptoms();
+            renderAvailableSymptoms();
+            updateResults();
+            document.getElementById('symptomSearch').value = '';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
