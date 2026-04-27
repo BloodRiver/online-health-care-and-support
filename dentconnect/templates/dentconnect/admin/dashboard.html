@@ -1,0 +1,61 @@
+{% extends 'dentconnect/admin/main_layout.html' %} {% block body %}
+<!-- Main Content Container -->
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <h2>Admin Dashboard</h2>
+      <p class="text-muted">System Overview</p>
+    </div>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="stat-card">
+        <i class="fas fa-user-injured"></i>
+        <h3 class="mt-2">1</h3>
+        <p>Patients</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <i class="fas fa-user-md"></i>
+        <h3 class="mt-2">1</h3>
+        <p>Doctors</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <i class="fas fa-users"></i>
+        <h3 class="mt-2">1</h3>
+        <p>Staff</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <i class="fas fa-calendar-check"></i>
+        <h3 class="mt-2">2</h3>
+        <p>Total Appointments</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick links -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">Management</h5>
+        </div>
+        <div class="card-body">
+          <a href="{% url 'dentconnect:admin_manage_users' %}" class="btn btn-primary me-2">Manage Users</a>
+          <a href="{% url 'dentconnect:admin_appointments' %}" class="btn btn-secondary"
+            >View All Appointments</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Close container from header -->
+{% endblock %}

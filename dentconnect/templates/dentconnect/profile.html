@@ -1,0 +1,86 @@
+{% extends 'dentconnect/patient/main_layout.html' %} {% block body %}
+<!-- Main Content Container -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="mb-0"><i class="fas fa-id-card"></i> My Profile</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="">
+            <div class="mb-3">
+              <label class="form-label">Email (cannot be changed)</label>
+              <input
+                type="email"
+                class="form-control"
+                value="hasanalkarim@gmail.com"
+                disabled
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                value="Hasanal Karim Rahman"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                name="phone"
+                value="01626398822"
+              />
+            </div>
+
+            <hr />
+            <h5>Change Password (optional)</h5>
+
+            <div class="mb-3">
+              <label for="current_password" class="form-label"
+                >Current Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                name="current_password"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="new_password" class="form-label">New Password</label>
+              <input type="password" class="form-control" name="new_password" />
+            </div>
+
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label"
+                >Confirm New Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                name="confirm_password"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Update Profile
+            </button>
+            <a href="javascript:history.back()" class="btn btn-secondary"
+              >Cancel</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Close container from header -->
+{% endblock %}
