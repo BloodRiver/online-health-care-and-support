@@ -1,0 +1,66 @@
+{% extends 'dentconnect/patient/main_layout.html' %} {% block body %}
+<!-- Main Content Container -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="mb-0">Book a New Appointment</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="">
+            <div class="mb-3">
+              <label for="dentist_name" class="form-label"
+                >Select Dentist</label
+              >
+              <select class="form-select" name="dentist_name" required>
+                <option value="">-- Choose Dentist --</option>
+                <option value="Doctor">Doctor</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="appointment_date" class="form-label">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="appointment_date"
+                  min="2026-04-27"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="appointment_time" class="form-label">Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  name="appointment_time"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="reason" class="form-label">Reason for Visit</label>
+              <textarea
+                class="form-control"
+                name="reason"
+                rows="3"
+                placeholder="Brief description of your issue..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Book Appointment
+            </button>
+            <a href="{% url 'patient:dashboard' %}" class="btn btn-secondary">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Close container from header -->
+{% endblock %}

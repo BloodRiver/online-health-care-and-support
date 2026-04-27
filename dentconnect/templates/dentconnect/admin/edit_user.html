@@ -1,0 +1,66 @@
+{% extends 'dentconnect/admin/main_layout.html' %} {% block body %}
+
+<!-- Main Content Container -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="mb-0">Edit User</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                value="Administrator"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                value="admin@dentconnect.com"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" class="form-control" name="phone" value="" />
+            </div>
+
+            <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <select class="form-select" name="role" required>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+                <option value="staff">Staff</option>
+                <option value="admin" selected>Admin</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="new_password" class="form-label"
+                >New Password (leave blank to keep current)</label
+              >
+              <input type="password" class="form-control" name="new_password" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update User</button>
+            <a href="users.php" class="btn btn-secondary">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Close container from header -->
+{% endblock %}
